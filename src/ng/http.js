@@ -544,19 +544,6 @@ function $HttpProvider() {
 
     /**
      * @ngdoc method
-     * @name ng.$http#delete
-     * @methodOf ng.$http
-     *
-     * @description
-     * Shortcut method to perform `DELETE` request
-     *
-     * @param {string} url Relative or absolute URL specifying the destination of the request
-     * @param {Object=} config Optional configuration object
-     * @returns {HttpPromise} Future object
-     */
-
-    /**
-     * @ngdoc method
      * @name ng.$http#head
      * @methodOf ng.$http
      *
@@ -581,7 +568,28 @@ function $HttpProvider() {
      * @param {Object=} config Optional configuration object
      * @returns {HttpPromise} Future object
      */
-    createShortMethods('get', 'delete', 'head', 'jsonp');
+    createShortMethods('get', 'head', 'jsonp');
+
+
+    /**
+     * @ngdoc method
+     * @name ng.$http#del
+     * @methodOf ng.$http
+     *
+     * @description
+     * Shortcut method to perform `DELETE` request
+     *
+     * @param {string} url Relative or absolute URL specifying the destination of the request
+     * @param {Object=} config Optional configuration object
+     * @returns {HttpPromise} Future object
+     */
+    $http.del = function(url, config) {
+      return $http(extend(config || {}, {
+        method: 'DELETE',
+        url: url
+      }));
+    }
+
 
     /**
      * @ngdoc method

@@ -483,15 +483,15 @@ describe('$http', function() {
       });
 
 
-      it('should have delete()', function() {
+      it('should have del()', function() {
         $httpBackend.expect('DELETE', '/url').respond('');
-        $http['delete']('/url');
+        $http['del']('/url');
       });
 
 
-      it('delete() should allow config param', function() {
+      it('del() should allow config param', function() {
         $httpBackend.expect('DELETE', '/url', undefined, checkHeader('Custom', 'Header')).respond('');
-        $http['delete']('/url', {headers: {'Custom': 'Header'}});
+        $http['del']('/url', {headers: {'Custom': 'Header'}});
       });
 
 
